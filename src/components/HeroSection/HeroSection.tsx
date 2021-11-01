@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Timeline, Tween } from "react-gsap";
 import { Controller, Scene } from "react-scrollmagic";
 import BgVideo from "../../assets/video_bg.mp4";
+import BrandColor from "../BrandColor/BrandColor";
 import "./HeroSection.scss";
 
 const HeroSection: React.FC = () => {
@@ -52,11 +53,16 @@ const HeroSection: React.FC = () => {
 								totalProgress={_progress}
 								target={
 									<>
-										<Heading size="4xl" color="white" className="hero-heading">
-											Welcome to my Website
+										<Heading
+											size="4xl"
+											color="white"
+											className="hero-heading"
+											fontWeight="black"
+										>
+											Welcome to <BrandColor>my Website</BrandColor>
 										</Heading>
 										<Heading size="4xl" color="white" className="hero-heading">
-											I am a developer
+											<BrandColor>I am a</BrandColor> developer
 										</Heading>
 									</>
 								}
@@ -65,8 +71,9 @@ const HeroSection: React.FC = () => {
 									to={{
 										left: "100vw",
 										opacity: 0,
+										filter: "blur(2px)",
 									}}
-									ease="Power.easeIn"
+									ease="Power.easeOut"
 									target={0}
 									delay={50}
 									duration={500}
