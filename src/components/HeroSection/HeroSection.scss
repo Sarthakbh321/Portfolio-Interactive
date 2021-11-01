@@ -1,13 +1,19 @@
+.video-container {
+	position: fixed;
+	top: 0;
+	width: 100vh;
+	height: 100vh;
+}
+
+.hero-video {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	filter: brightness(50%);
+}
+
 .hero-section {
 	height: 100vh;
-
-	video {
-		height: 100%;
-		width: 100%;
-		object-fit: cover;
-		z-index: -1;
-		filter: brightness(50%);
-	}
 
 	.hero-heading {
 		position: absolute;
