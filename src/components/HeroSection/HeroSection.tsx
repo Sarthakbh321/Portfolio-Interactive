@@ -61,6 +61,7 @@ const HeroSection: React.FC = () => {
 										>
 											Welcome to <BrandColor>my Website</BrandColor>
 										</Heading>
+
 										<Heading size="4xl" color="white" className="hero-heading">
 											<BrandColor>I am a</BrandColor> developer
 										</Heading>
@@ -86,7 +87,7 @@ const HeroSection: React.FC = () => {
 									ease="Power.easeOut"
 									delay={200}
 									target={1}
-									duration={500}
+									duration={250}
 								></Tween>
 								<Tween
 									to={{
