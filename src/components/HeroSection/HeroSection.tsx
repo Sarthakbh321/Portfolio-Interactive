@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/layout";
 import React, { useEffect, useRef } from "react";
-import { Tween } from "react-gsap";
+import { Timeline, Tween } from "react-gsap";
 import { Controller, Scene } from "react-scrollmagic";
 import BgVideo from "../../assets/video_bg.mp4";
 import "./HeroSection.scss";
@@ -35,12 +35,8 @@ const HeroSection: React.FC = () => {
 
 	return (
 		<Controller>
-			{/* <Box className="video-container">
-				<video src={BgVideo} ref={videoRef} className="hero-video" autoPlay />
-			</Box> */}
-			<Scene duration={5000} pin triggerHook={0}>
+			<Scene duration={3000} pin triggerHook={0}>
 				{(_progress: number) => {
-					// updateProgress(_progress);
 					return (
 						<Box className="hero-section">
 							<video
@@ -48,22 +44,55 @@ const HeroSection: React.FC = () => {
 								ref={videoRef}
 								className="hero-video"
 								autoPlay
+								preload="preload"
 								muted
 								loop
 							/>
-							<Tween
-								to={{
-									left: "150%",
-									opacity: 0,
-								}}
-								ease="Strong.easeOut"
-								paused
+							<Timeline
 								totalProgress={_progress}
+								target={
+									<>
+										<Heading size="4xl" color="white" className="hero-heading">
+											Welcome to my Website
+										</Heading>
+										<Heading size="4xl" color="white" className="hero-heading">
+											I am a developer
+										</Heading>
+									</>
+								}
 							>
-								<Heading size="4xl" color="white" className="hero-heading">
-									Welcome to my Website
-								</Heading>
-							</Tween>
+								<Tween
+									to={{
+										left: "100vw",
+										opacity: 0,
+									}}
+									ease="Power.easeIn"
+									target={0}
+									delay={50}
+									duration={500}
+								></Tween>
+								<Tween
+									from={{ opacity: 0 }}
+									to={{
+										opacity: 1,
+									}}
+									ease="Power.easeOut"
+									delay={200}
+									target={1}
+									duration={500}
+								></Tween>
+								<Tween
+									to={{
+										opacity: 0,
+										scale: 3,
+										filter: "blur(10px)",
+									}}
+									ease="Strong.easeOut"
+									target={1}
+									delay={50}
+									duration={250}
+								></Tween>
+							</Timeline>
 						</Box>
 					);
 				}}
