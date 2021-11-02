@@ -1,9 +1,14 @@
 import { Box } from "@chakra-ui/layout";
-import React from "react";
+import React, { ReactNode } from "react";
 
-const BrandColor: React.FC = ({ children }) => {
+interface IProps {
+	children?: ReactNode;
+	color?: string;
+}
+
+const BrandColor: React.FC<IProps> = ({ children, color = "brand.500" }) => {
 	return (
-		<Box as="span" color="brand.500">
+		<Box as="span" color={color}>
 			{children}
 		</Box>
 	);
