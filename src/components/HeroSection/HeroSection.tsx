@@ -1,6 +1,6 @@
 import { Box, Heading } from "@chakra-ui/layout";
 import React, { useEffect, useRef } from "react";
-import { SplitChars, Timeline, Tween } from "react-gsap";
+import { Timeline, Tween } from "react-gsap";
 import { Controller, Scene } from "react-scrollmagic";
 import BgVideo from "../../assets/video_bg.mp4";
 import BrandColor from "../BrandColor/BrandColor";
